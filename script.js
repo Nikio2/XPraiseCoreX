@@ -26,14 +26,6 @@ const phrases = [
   "LOREM IPSUM"
 ];
 
-const shuffle = (array: string[]) => { 
-  for (let i = array.length - 1; i > 0; i--) { 
-    const j = Math.floor(Math.random() * (i + 1)); 
-    [array[i], array[j]] = [array[j], array[i]]; 
-  } 
-  return array; 
-}; 
-
 const ROWS = 5; 
 const COLS = 5; 
 const MAX_NUM = 25; 
@@ -42,9 +34,8 @@ let currentPlayer = 1;
 let player1Card;
   
 function createBingoCard() { 
-    const card = shuffle(phrases);
+    const card = [];
 
-  /*
     while (phrases.size < ROWS * COLS) { 
         const num = Math .floor(Math.random() * MAX_NUM) + 1; 
     } 
@@ -53,11 +44,10 @@ function createBingoCard() {
     for (let i = 0; i < ROWS; i++) { 
         card.push(phrasesArray.slice(i * COLS, (i + 1) * COLS)); 
     } 
-
-  */
   
     return card; 
 } 
+  
   
 function displayBingoCard(card, containerId) { 
     const container = 
@@ -68,8 +58,8 @@ function displayBingoCard(card, containerId) {
         for (let j = 0; j < COLS; j++) { 
             const cell = 
                 document.createElement('div'); 
-            cell.textContent = card[i]; 
-            if (card[i] === 'X') { 
+            cell.textContent = card[i][j]; 
+            if (card[i][j] === 'X') { 
                 cell.classList.add('marked'); 
             } 
             container.appendChild(cell); 
@@ -80,8 +70,8 @@ function displayBingoCard(card, containerId) {
 function markNumber(card, number) { 
     for (let i = 0; i < ROWS; i++) { 
         for (let j = 0; j < COLS; j++) { 
-            if (card[i] === number) { 
-                card[i] = 'X'; 
+            if (card[i][j] === number) { 
+                card[i][j] = 'X'; 
                 return true; 
             } 
         } 
@@ -97,10 +87,10 @@ function checkWin(card) {
         let rowFilled = true; 
         let colFilled = true; 
         for (let j = 0; j < COLS; j++) { 
-            if (card[i] !== 'X') { 
+            if (card[i][j] !== 'X') { 
                 rowFilled = false; 
             } 
-            if (card[j] !== 'X') { 
+            if (card[j][i] !== 'X') { 
                 colFilled = false; 
             } 
         } 
@@ -113,10 +103,10 @@ function checkWin(card) {
     let diagonal1Filled = true; 
     let diagonal2Filled = true; 
     for (let i = 0; i < ROWS; i++) { 
-        if (card[i] !== 'X') { 
+        if (card[i][i] !== 'X') { 
             diagonal1Filled = false; 
         } 
-        if (card[i] !== 'X') { 
+        if (card[i][COLS - 1 - i] !== 'X') { 
             diagonal2Filled = false; 
         } 
     } 
@@ -131,7 +121,9 @@ document
     .getElementById('startButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
+        player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
+        displayBingoCard(player2Card, 'player2Card'); 
         document 
             .getElementById('markButton') 
             .disabled = false; 
@@ -153,7 +145,9 @@ document
     .getElementById('resetButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
+        player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
+        displayBingoCard(player2Card, 'player2Card'); 
         currentPlayer = 1; 
         document 
             .getElementById('numberInput') 
@@ -186,14 +180,27 @@ document.getElementById('markButton')
   
         if (number >= 1 && 
             number <= MAX_NUM) { 
-            if (markNumber(player1Card, number))  { 
+            if (markNumber(player1Card, number) && 
+                markNumber(player2Card, number)) { 
                 displayBingoCard(player1Card, 'player1Card'); 
+                displayBingoCard(player2Card, 'player2Card'); 
   
                 if (checkWin(player1Card)) { 
                     document 
                         .getElementById('winDisplay') 
                         .textContent =  
                             '???? Player 1 has won the game! ????'; 
+                    document 
+                        .getElementById('markButton') 
+                        .disabled = true; 
+                    document 
+                        .getElementById('numberInput') 
+                        .disabled = true; 
+                } else if (checkWin(player2Card)) { 
+                    document 
+                        .getElementById('winDisplay') 
+                        .textContent =  
+                            '???? Player 2 has won the game! ????'; 
                     document 
                         .getElementById('markButton') 
                         .disabled = true; 
@@ -211,9 +218,11 @@ document.getElementById('markButton')
                 } 
             } else { 
                 alert( 
-                    'Number already marked or not found on any player card.'); 
+                    'Number already marked or not  
+                     found on any player card.'); 
             } 
         } else { 
-            alert('Please enter a valid number between 1 and 25.'); 
+            alert('Please enter a valid  
+                   number between 1 and 25.'); 
         } 
     });
