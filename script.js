@@ -37,14 +37,12 @@ function createBingoCard() {
     const usedNumbers = new Set(); 
   
     while (phrases.size < ROWS * COLS) { 
-        const num = 
-            Math 
-                .floor(Math.random() * 
-                    MAX_NUM) + 1; 
+        const phrase = 
+            phrases[Math.floor(Math.random() * MAX_NUM) + 1]; 
     } 
   
     const phrasesArray = 
-        Array.from(phrases); 
+        Array.from(phrase); 
     for (let i = 0; i < ROWS; i++) { 
         card.push(phrasesArray 
             .slice(i * COLS, (i + 1) * COLS)); 
