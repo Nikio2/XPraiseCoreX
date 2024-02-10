@@ -198,11 +198,9 @@ document.getElementById('markButton')
                 } 
             } else { 
                 alert( 
-                    'Number already marked or not  
-                     found on any player card.'); 
+                    'Number already marked or not found on any player card.'); 
             } 
         } else { 
-            alert('Please enter a valid  
-                   number between 1 and 25.'); 
+            alert('Please enter a valid number between 1 and 25.'); 
         } 
     });
