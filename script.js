@@ -33,22 +33,25 @@ let currentPlayer = 1;
 let player1Card;
   
 function createBingoCard() { 
-    const card = []; 
-    const usedNumbers = new Set(); 
-  
+    const card = phrases => {
+      for (let i = phrases.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = phrases[i];
+        phrases[j] = temp;
+      }
+    }
+
+  /*
     while (phrases.size < ROWS * COLS) { 
-        const num = 
-            Math 
-                .floor(Math.random() * 
-                    MAX_NUM) + 1; 
+        const num = Math .floor(Math.random() * MAX_NUM) + 1; 
     } 
   
-    const phrasesArray = 
-        Array.from(phrases); 
+    const phrasesArray = Array.from(phrases); 
     for (let i = 0; i < ROWS; i++) { 
-        card.push(phrasesArray 
-            .slice(i * COLS, (i + 1) * COLS)); 
+        card.push(phrasesArray.slice(i * COLS, (i + 1) * COLS)); 
     } 
+
+  */
   
     return card; 
 } 
