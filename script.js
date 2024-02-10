@@ -65,8 +65,8 @@ function displayBingoCard(card, containerId) {
         for (let j = 0; j < COLS; j++) { 
             const cell = 
                 document.createElement('div'); 
-            cell.textContent = card[i][j]; 
-            if (card[i][j] === 'X') { 
+            cell.textContent = card[i]; 
+            if (card[i] === 'X') { 
                 cell.classList.add('marked'); 
             } 
             container.appendChild(cell); 
@@ -77,8 +77,8 @@ function displayBingoCard(card, containerId) {
 function markNumber(card, number) { 
     for (let i = 0; i < ROWS; i++) { 
         for (let j = 0; j < COLS; j++) { 
-            if (card[i][j] === number) { 
-                card[i][j] = 'X'; 
+            if (card[i] === number) { 
+                card[i] = 'X'; 
                 return true; 
             } 
         } 
@@ -94,10 +94,10 @@ function checkWin(card) {
         let rowFilled = true; 
         let colFilled = true; 
         for (let j = 0; j < COLS; j++) { 
-            if (card[i][j] !== 'X') { 
+            if (card[i] !== 'X') { 
                 rowFilled = false; 
             } 
-            if (card[j][i] !== 'X') { 
+            if (card[j] !== 'X') { 
                 colFilled = false; 
             } 
         } 
@@ -110,10 +110,10 @@ function checkWin(card) {
     let diagonal1Filled = true; 
     let diagonal2Filled = true; 
     for (let i = 0; i < ROWS; i++) { 
-        if (card[i][i] !== 'X') { 
+        if (card[i] !== 'X') { 
             diagonal1Filled = false; 
         } 
-        if (card[i][COLS - 1 - i] !== 'X') { 
+        if (card[i] !== 'X') { 
             diagonal2Filled = false; 
         } 
     } 
