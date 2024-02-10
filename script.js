@@ -25,6 +25,15 @@ const phrases = [
   "LOREM IPSUM",
   "LOREM IPSUM"
 ];
+
+const shuffle = (array: string[]) => { 
+  for (let i = array.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j], array[i]]; 
+  } 
+  return array; 
+}; 
+
 const ROWS = 5; 
 const COLS = 5; 
 const MAX_NUM = 25; 
@@ -33,7 +42,7 @@ let currentPlayer = 1;
 let player1Card;
   
 function createBingoCard() { 
-    const card = phrases => {
+    const card = shuffle(phrases) => {
       for (let i = phrases.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         const temp = phrases[i];
