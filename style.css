@@ -25,12 +25,12 @@ h1 {
   
 .player-card { 
     background-color: #fff; 
-    padding: 50px; 
-    border-radius: 25px; 
+    padding: 150px; 
+    border-radius: 5px; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
     display: grid; 
     grid-template-columns: repeat(5, 1fr); 
-    gap: 5px; 
+    gap: 30px; 
 } 
   
 .player-card h2 { 
