@@ -35,6 +35,7 @@ let player1Card;
 function createBingoCard() { 
     const card = []; 
     const usedNumbers = new Set(); 
+    const phrase = [];
   
     while (phrases.size < ROWS * COLS) { 
         const phrase = 
