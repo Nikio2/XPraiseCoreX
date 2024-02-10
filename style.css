@@ -83,9 +83,9 @@ label {
 .player-card div { 
     background-color: #379683; 
     /* Dark green number background color */
-    color: white; 
-    width: 30px; 
-    height: 30px; 
+    color: black; 
+    width: 100px; 
+    height: 100px; 
     border-radius: 50%; 
     display: flex; 
     align-items: center; 
