@@ -145,9 +145,9 @@ document
     .getElementById('resetButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        player2Card = createBingoCard(); 
+        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        displayBingoCard(player2Card, 'player2Card'); 
+        //displayBingoCard(player2Card, 'player2Card'); 
         currentPlayer = 1; 
         document 
             .getElementById('numberInput') 
@@ -183,24 +183,13 @@ document.getElementById('markButton')
             if (markNumber(player1Card, number) && 
                 markNumber(player2Card, number)) { 
                 displayBingoCard(player1Card, 'player1Card'); 
-                displayBingoCard(player2Card, 'player2Card'); 
+                //displayBingoCard(player2Card, 'player2Card'); 
   
                 if (checkWin(player1Card)) { 
                     document 
                         .getElementById('winDisplay') 
                         .textContent =  
                             '???? Player 1 has won the game! ????'; 
-                    document 
-                        .getElementById('markButton') 
-                        .disabled = true; 
-                    document 
-                        .getElementById('numberInput') 
-                        .disabled = true; 
-                } else if (checkWin(player2Card)) { 
-                    document 
-                        .getElementById('winDisplay') 
-                        .textContent =  
-                            '???? Player 2 has won the game! ????'; 
                     document 
                         .getElementById('markButton') 
                         .disabled = true; 
@@ -218,11 +207,9 @@ document.getElementById('markButton')
                 } 
             } else { 
                 alert( 
-                    'Number already marked or not  
-                     found on any player card.'); 
+                    'Number already marked or not found on any player card.'); 
             } 
         } else { 
-            alert('Please enter a valid  
-                   number between 1 and 25.'); 
+            alert('Please enter a valid number between 1 and 25.'); 
         } 
     });
