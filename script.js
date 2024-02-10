@@ -29,7 +29,7 @@ const COLS = 5;
 const MAX_NUM = 25; 
   
 let currentPlayer = 1; 
-let player1Card;// player2Card; 
+let player1Card;
   
 function createBingoCard() { 
     const card = []; 
@@ -124,9 +124,7 @@ document
     .getElementById('startButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        //displayBingoCard(player2Card, 'player2Card'); 
         document 
             .getElementById('markButton') 
             .disabled = false; 
@@ -148,9 +146,7 @@ document
     .getElementById('resetButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        //displayBingoCard(player2Card, 'player2Card'); 
         currentPlayer = 1; 
         document 
             .getElementById('numberInput') 
@@ -185,7 +181,6 @@ document.getElementById('markButton')
             number <= MAX_NUM) { 
             if (markNumber(player1Card, number))  { 
                 displayBingoCard(player1Card, 'player1Card'); 
-                //displayBingoCard(player2Card, 'player2Card'); 
   
                 if (checkWin(player1Card)) { 
                     document 
