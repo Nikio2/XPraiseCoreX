@@ -206,8 +206,7 @@ document.getElementById('markButton')
                         `Player ${currentPlayer}'s Turn`; 
                 } 
             } else { 
-                alert( 
-                    'Number already marked or not found on any player card.'); 
+                alert('Number already marked or not found on any player card.'); 
             } 
         } else { 
             alert('Please enter a valid number between 1 and 25.'); 
