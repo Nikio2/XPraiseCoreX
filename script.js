@@ -42,13 +42,7 @@ let currentPlayer = 1;
 let player1Card;
   
 function createBingoCard() { 
-    const card = shuffle(phrases) => {
-      for (let i = phrases.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = phrases[i];
-        phrases[j] = temp;
-      }
-    }
+    const card = shuffle(phrases);
 
   /*
     while (phrases.size < ROWS * COLS) { 
