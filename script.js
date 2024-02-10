@@ -1,4 +1,29 @@
-import { phrases } from "./phrases.js";
+const phrases = [
+  "TEST_DID_THIS_WORK",
+  "PM is noodling again",
+  "Rich pulls his guitar plug with loud pop",
+  "Can everyone go on mute",
+  "Could you please get closer to the mic",
+  "(Loud painful echo/feedback)",
+  "Next slide please",
+  "Can we take this offline",
+  "Is __ on this call?",
+  "Could you share these slides afterward?",
+  "Can somebody grant presenter rights?",
+  "Can you email that to everyone?",
+  "Sorry, I had a problem logging in",
+  "(Animal noises in the background)",
+  "Sorry, I didn't find the conference ID",
+  "I was having connection issues",
+  "I'll have to get back to you",
+  "Who just joined?",
+  "Sorry, something __ with my calendar",
+  "Do you see my screen?",
+  "Let's wait for ___",
+  "You will send the minutes",
+    "TEST_DID_THIS_WORK33",
+    "1",
+];
 const ROWS = 5; 
 const COLS = 5; 
 const MAX_NUM = 25; 
@@ -10,20 +35,17 @@ function createBingoCard() {
     const card = []; 
     const usedNumbers = new Set(); 
   
-    while (usedNumbers.size < ROWS * COLS) { 
+    while (phrases.size < ROWS * COLS) { 
         const num = 
             Math 
                 .floor(Math.random() * 
                     MAX_NUM) + 1; 
-        if (!usedNumbers.has(num)) { 
-            usedNumbers.add(num); 
-        } 
     } 
   
-    const numbersArray = 
-        Array.from(usedNumbers); 
+    const phrasesArray = 
+        Array.from(phrases); 
     for (let i = 0; i < ROWS; i++) { 
-        card.push(numbersArray 
+        card.push(phrasesArray 
             .slice(i * COLS, (i + 1) * COLS)); 
     } 
   
