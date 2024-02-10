@@ -25,7 +25,6 @@ const phrases = [
   "LOREM IPSUM",
   "LOREM IPSUM"
 ];
-
 const ROWS = 5; 
 const COLS = 5; 
 const MAX_NUM = 25; 
@@ -34,20 +33,25 @@ let currentPlayer = 1;
 let player1Card;
   
 function createBingoCard() { 
-    const card = [];
-
+    const card = []; 
+    const usedNumbers = new Set(); 
+  
     while (phrases.size < ROWS * COLS) { 
-        const num = Math .floor(Math.random() * MAX_NUM) + 1; 
+        const num = 
+            Math 
+                .floor(Math.random() * 
+                    MAX_NUM) + 1; 
     } 
   
-    const phrasesArray = Array.from(phrases); 
+    const phrasesArray = 
+        Array.from(phrases); 
     for (let i = 0; i < ROWS; i++) { 
-        card.push(phrasesArray.slice(i * COLS, (i + 1) * COLS)); 
+        card.push(phrasesArray 
+            .slice(i * COLS, (i + 1) * COLS)); 
     } 
   
     return card; 
 } 
-  
   
 function displayBingoCard(card, containerId) { 
     const container = 
@@ -121,9 +125,7 @@ document
     .getElementById('startButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        displayBingoCard(player2Card, 'player2Card'); 
         document 
             .getElementById('markButton') 
             .disabled = false; 
@@ -145,9 +147,7 @@ document
     .getElementById('resetButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        //displayBingoCard(player2Card, 'player2Card'); 
         currentPlayer = 1; 
         document 
             .getElementById('numberInput') 
@@ -180,10 +180,8 @@ document.getElementById('markButton')
   
         if (number >= 1 && 
             number <= MAX_NUM) { 
-            if (markNumber(player1Card, number) && 
-                markNumber(player2Card, number)) { 
+            if (markNumber(player1Card, number))  { 
                 displayBingoCard(player1Card, 'player1Card'); 
-                //displayBingoCard(player2Card, 'player2Card'); 
   
                 if (checkWin(player1Card)) { 
                     document 
@@ -206,7 +204,8 @@ document.getElementById('markButton')
                         `Player ${currentPlayer}'s Turn`; 
                 } 
             } else { 
-                alert('Number already marked or not found on any player card.'); 
+                alert( 
+                    'Number already marked or not found on any player card.'); 
             } 
         } else { 
             alert('Please enter a valid number between 1 and 25.'); 
