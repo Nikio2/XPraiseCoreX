@@ -23,6 +23,7 @@ const phrases = [
   "LOREM IPSUM",
   "LOREM IPSUM",
   "LOREM IPSUM",
+  "LOREM IPSUM"
 ];
 const ROWS = 5; 
 const COLS = 5; 
