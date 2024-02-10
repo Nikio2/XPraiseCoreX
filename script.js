@@ -1,5 +1,5 @@
 const phrases = [
-  "Dave is late to 7:00",
+  "More than one person is late to 7:00",
   "PM is noodling again",
   "Rich pulls his guitar plug with loud pop",
   "Mike prays us out",
