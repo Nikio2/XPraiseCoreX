@@ -33,11 +33,6 @@ h1 {
     gap: 30px; 
 } 
   
-.player-card h2 { 
-    color: #379683; 
-    /* Dark green text color */
-} 
-  
 .controls { 
     margin-top: 20px; 
 } 
