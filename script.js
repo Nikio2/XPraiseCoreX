@@ -1,3 +1,4 @@
+import { phrases } from "./phrases.js";
 const ROWS = 5; 
 const COLS = 5; 
 const MAX_NUM = 25; 
