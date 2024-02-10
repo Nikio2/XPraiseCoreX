@@ -23,7 +23,7 @@ const phrases = [
   "LOREM IPSUM",
   "LOREM IPSUM",
   "LOREM IPSUM",
-  "1"
+  "LOREM IPSUM"
 ];
 const ROWS = 5; 
 const COLS = 5; 
@@ -35,15 +35,16 @@ let player1Card;
 function createBingoCard() { 
     const card = []; 
     const usedNumbers = new Set(); 
-    const phrase = [];
   
     while (phrases.size < ROWS * COLS) { 
-        const phrase = 
-            phrases[Math.floor(Math.random() * MAX_NUM) + 1]; 
+        const num = 
+            Math 
+                .floor(Math.random() * 
+                    MAX_NUM) + 1; 
     } 
   
     const phrasesArray = 
-        Array.from(phrase); 
+        Array.from(phrases); 
     for (let i = 0; i < ROWS; i++) { 
         card.push(phrasesArray 
             .slice(i * COLS, (i + 1) * COLS)); 
