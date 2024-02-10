@@ -29,7 +29,7 @@ const COLS = 5;
 const MAX_NUM = 25; 
   
 let currentPlayer = 1; 
-let player1Card, player2Card; 
+let player1Card;// player2Card; 
   
 function createBingoCard() { 
     const card = []; 
@@ -124,9 +124,9 @@ document
     .getElementById('startButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        player2Card = createBingoCard(); 
+        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        displayBingoCard(player2Card, 'player2Card'); 
+        //displayBingoCard(player2Card, 'player2Card'); 
         document 
             .getElementById('markButton') 
             .disabled = false; 
@@ -148,9 +148,9 @@ document
     .getElementById('resetButton') 
     .addEventListener('click', () => { 
         player1Card = createBingoCard(); 
-        player2Card = createBingoCard(); 
+        //player2Card = createBingoCard(); 
         displayBingoCard(player1Card, 'player1Card'); 
-        displayBingoCard(player2Card, 'player2Card'); 
+        //displayBingoCard(player2Card, 'player2Card'); 
         currentPlayer = 1; 
         document 
             .getElementById('numberInput') 
@@ -183,27 +183,15 @@ document.getElementById('markButton')
   
         if (number >= 1 && 
             number <= MAX_NUM) { 
-            if (markNumber(player1Card, number) && 
-                markNumber(player2Card, number)) { 
+            if (markNumber(player1Card, number))  { 
                 displayBingoCard(player1Card, 'player1Card'); 
-                displayBingoCard(player2Card, 'player2Card'); 
+                //displayBingoCard(player2Card, 'player2Card'); 
   
                 if (checkWin(player1Card)) { 
                     document 
                         .getElementById('winDisplay') 
                         .textContent =  
                             '???? Player 1 has won the game! ????'; 
-                    document 
-                        .getElementById('markButton') 
-                        .disabled = true; 
-                    document 
-                        .getElementById('numberInput') 
-                        .disabled = true; 
-                } else if (checkWin(player2Card)) { 
-                    document 
-                        .getElementById('winDisplay') 
-                        .textContent =  
-                            '???? Player 2 has won the game! ????'; 
                     document 
                         .getElementById('markButton') 
                         .disabled = true; 
